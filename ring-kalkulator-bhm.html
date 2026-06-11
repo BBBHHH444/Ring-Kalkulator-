@@ -365,8 +365,12 @@ buildMargeSelect();
 
 ['ringmass','ringbreite','ringstaerke','legierung','marge'].forEach(id => {
   document.getElementById(id).addEventListener('change', calc);
+  document.getElementById(id).addEventListener('input', calc);
 });
-calc();
+
+// Wacht tot alle elementen gebouwd zijn, dan calc
+setTimeout(calc, 0);
 </script>
 </body>
 </html>
+
