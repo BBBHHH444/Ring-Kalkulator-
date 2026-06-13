@@ -379,7 +379,7 @@ function buildMargeSelect() {
     const opt = document.createElement('option');
     opt.value = val;
     opt.textContent = val.toFixed(1).replace('.', ',') + '×';
-    if (Math.abs(val - 2.5) < 0.001) opt.selected = true;
+    if (Math.abs(val - 2.8) < 0.001) opt.selected = true;
     sel.appendChild(opt);
   }
 }
