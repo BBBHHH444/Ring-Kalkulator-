@@ -12,7 +12,7 @@
     background: #f5f4f0;
     color: #1a1a1a;
     padding: 1rem;
-    max-width: 680px;
+    max-width: 720px;
     margin: 0 auto;
   }
   h1 {
@@ -44,22 +44,43 @@
     margin-top: -0.5rem;
     margin-bottom: 0.75rem;
   }
-  .grid {
+  .partner-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 12px;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  @media (max-width: 480px) {
+    .partner-grid { grid-template-columns: 1fr; }
+  }
+  .partner-block {
+    background: #f9f8f6;
+    border: 0.5px solid #e8e6e2;
+    border-radius: 10px;
+    padding: 0.875rem 1rem;
+  }
+  .partner-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.75rem;
+  }
+  .partner-title.p2 { color: #1D9E75; }
+  .field {
+    margin-bottom: 10px;
   }
   .field label {
     display: block;
-    font-size: 12px;
+    font-size: 11px;
     color: #888;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
   }
   .field select,
   .field input[type="number"],
   .field input[type="text"] {
     width: 100%;
-    padding: 8px 10px;
+    padding: 7px 9px;
     border: 0.5px solid #ddd;
     border-radius: 8px;
     font-size: 14px;
@@ -72,19 +93,19 @@
   .field select {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 10px center;
-    padding-right: 28px;
+    background-position: right 9px center;
+    padding-right: 26px;
   }
   .field.readonly input {
-    background: #f5f4f0;
+    background: #efefed;
     color: #888;
   }
   .ek-row {
     display: grid;
-    grid-template-columns: 1fr 130px;
+    grid-template-columns: 1fr 120px;
     gap: 8px;
     align-items: center;
-    padding: 7px 0;
+    padding: 6px 0;
     border-bottom: 0.5px solid #f0eeea;
   }
   .ek-row:last-child { border-bottom: none; }
@@ -99,32 +120,87 @@
     color: #1a1a1a;
     width: 100%;
   }
-  .result-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+  .marge-row {
+    display: flex;
+    align-items: center;
     gap: 12px;
   }
-  .metric {
-    background: #f5f4f0;
-    border-radius: 8px;
-    padding: 0.75rem 1rem;
+  .marge-row label {
+    font-size: 12px;
+    color: #888;
+    white-space: nowrap;
   }
-  .metric label {
+  .marge-row select {
+    padding: 7px 26px 7px 9px;
+    border: 0.5px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    background: #fff;
+    color: #1a1a1a;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 9px center;
+  }
+  .result-section {
+    background: #fff;
+    border: 0.5px solid #ddd;
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+  }
+  .result-partner-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  @media (max-width: 480px) {
+    .result-partner-grid { grid-template-columns: 1fr; }
+  }
+  .result-block {
+    background: #f9f8f6;
+    border-radius: 10px;
+    padding: 0.875rem 1rem;
+  }
+  .result-block .rb-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.6rem;
+  }
+  .result-block .rb-title.p2 { color: #1D9E75; }
+  .result-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #555;
+    padding: 3px 0;
+  }
+  .result-line .val { font-weight: 500; color: #1a1a1a; }
+  .totaal-block {
+    background: #1D9E75;
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  }
+  .totaal-item label {
     display: block;
     font-size: 11px;
-    color: #888;
+    color: #9FE1CB;
     margin-bottom: 4px;
   }
-  .metric .val {
-    font-size: 19px;
-    font-weight: 500;
-    color: #1a1a1a;
+  .totaal-item .val {
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
   }
-  .metric.highlight {
-    background: #1D9E75;
-  }
-  .metric.highlight label { color: #9FE1CB; }
-  .metric.highlight .val { color: #fff; }
   .saved-badge {
     display: inline-block;
     font-size: 11px;
@@ -134,95 +210,85 @@
     transition: opacity 0.4s;
   }
   .saved-badge.show { opacity: 1; }
-  @media (max-width: 400px) {
-    .result-grid { grid-template-columns: 1fr 1fr; }
-    .result-grid .metric:last-child { grid-column: span 2; }
-  }
 </style>
 </head>
 <body>
 
 <h1>Ring Kalkulator <span style="font-size:13px;color:#aaa;font-weight:400">BHM Atelier</span></h1>
 
+<!-- EK Preise -->
 <div class="section">
   <div class="section-title">EK Preise p/gr (€) <span class="saved-badge" id="saved-badge">✓ gespeichert</span></div>
   <div class="section-sub" id="ek-datum">Preise werden täglich aktualisiert</div>
   <div id="ek-preise"></div>
 </div>
 
+<!-- Marge -->
 <div class="section">
-  <div class="section-title">Ring Maße</div>
-  <div class="grid">
-    <div class="field">
-      <label>Ringmaß (ø mm)</label>
-      <select id="ringmass"></select>
-    </div>
-    <div class="field">
-      <label>Ringbreite (mm)</label>
-      <select id="ringbreite"></select>
-    </div>
-    <div class="field">
-      <label>Ringstärke (mm)</label>
-      <select id="ringstaerke"></select>
-    </div>
-    <div class="field readonly">
-      <label>Ringlänge (mm)</label>
-      <input type="text" id="ringlaenge" readonly>
-    </div>
+  <div class="section-title">Marge</div>
+  <div class="marge-row">
+    <label>Marge (×)</label>
+    <select id="marge"></select>
   </div>
 </div>
 
+<!-- Partner 1 & 2 -->
 <div class="section">
-  <div class="section-title">Legierung &amp; Gewicht</div>
-  <div class="grid">
-    <div class="field">
-      <label>Legierung</label>
-      <select id="legierung"></select>
+  <div class="section-title">Ring Maße &amp; Legierung</div>
+  <div class="partner-grid">
+
+    <div class="partner-block">
+      <div class="partner-title">Partner 1</div>
+      <div class="field"><label>Ringmaß (ø mm)</label><select id="p1_ringmass"></select></div>
+      <div class="field"><label>Ringbreite (mm)</label><select id="p1_ringbreite"></select></div>
+      <div class="field"><label>Ringstärke (mm)</label><select id="p1_ringstaerke"></select></div>
+      <div class="field"><label>Legierung</label><select id="p1_legierung"></select></div>
+      <div class="field readonly"><label>Ringlänge (mm)</label><input type="text" id="p1_ringlaenge" readonly></div>
+      <div class="field readonly"><label>Gewicht (gr)</label><input type="text" id="p1_gewicht" readonly></div>
     </div>
-    <div class="field readonly">
-      <label>Dichte (g/cm³)</label>
-      <input type="text" id="dichte_display" readonly>
+
+    <div class="partner-block">
+      <div class="partner-title p2">Partner 2</div>
+      <div class="field"><label>Ringmaß (ø mm)</label><select id="p2_ringmass"></select></div>
+      <div class="field"><label>Ringbreite (mm)</label><select id="p2_ringbreite"></select></div>
+      <div class="field"><label>Ringstärke (mm)</label><select id="p2_ringstaerke"></select></div>
+      <div class="field"><label>Legierung</label><select id="p2_legierung"></select></div>
+      <div class="field readonly"><label>Ringlänge (mm)</label><input type="text" id="p2_ringlaenge" readonly></div>
+      <div class="field readonly"><label>Gewicht (gr)</label><input type="text" id="p2_gewicht" readonly></div>
     </div>
-    <div class="field readonly">
-      <label>Gewicht (gr)</label>
-      <input type="text" id="gewicht" readonly>
-    </div>
+
   </div>
 </div>
 
-<div class="section">
-  <div class="section-title">Kalkulation</div>
-  <div class="grid">
-    <div class="field readonly">
-      <label>EK Preis p/gr (€)</label>
-      <input type="text" id="ek_pgr_display" readonly>
-    </div>
-    <div class="field readonly">
-      <label>EK Preis total (€)</label>
-      <input type="text" id="ek_total" readonly>
-    </div>
-    <div class="field">
-      <label>Marge (×)</label>
-      <select id="marge"></select>
-    </div>
-  </div>
-</div>
-
-<div class="section">
+<!-- Ergebnis -->
+<div class="result-section">
   <div class="section-title">Ergebnis</div>
-  <div class="result-grid">
-    <div class="metric">
-      <label>Gewinn (netto)</label>
-      <div class="val" id="res_gewinn">—</div>
+  <div class="result-partner-grid">
+
+    <div class="result-block">
+      <div class="rb-title">Partner 1</div>
+      <div class="result-line"><span>EK p/gr</span><span class="val" id="p1_ek_pgr">—</span></div>
+      <div class="result-line"><span>EK total</span><span class="val" id="p1_ek_total">—</span></div>
+      <div class="result-line"><span>Gewinn</span><span class="val" id="p1_gewinn">—</span></div>
+      <div class="result-line"><span>MwSt 19%</span><span class="val" id="p1_mwst">—</span></div>
+      <div class="result-line" style="margin-top:6px;padding-top:6px;border-top:0.5px solid #ddd"><span style="font-weight:600">VK Preis</span><span class="val" id="p1_vk" style="font-size:16px">—</span></div>
     </div>
-    <div class="metric">
-      <label>MwSt 19%</label>
-      <div class="val" id="res_mwst">—</div>
+
+    <div class="result-block">
+      <div class="rb-title p2">Partner 2</div>
+      <div class="result-line"><span>EK p/gr</span><span class="val" id="p2_ek_pgr">—</span></div>
+      <div class="result-line"><span>EK total</span><span class="val" id="p2_ek_total">—</span></div>
+      <div class="result-line"><span>Gewinn</span><span class="val" id="p2_gewinn">—</span></div>
+      <div class="result-line"><span>MwSt 19%</span><span class="val" id="p2_mwst">—</span></div>
+      <div class="result-line" style="margin-top:6px;padding-top:6px;border-top:0.5px solid #ddd"><span style="font-weight:600">VK Preis</span><span class="val" id="p2_vk" style="font-size:16px">—</span></div>
     </div>
-    <div class="metric highlight">
-      <label>VK Preis (brutto)</label>
-      <div class="val" id="res_vk">—</div>
-    </div>
+
+  </div>
+
+  <div class="totaal-block">
+    <div class="totaal-item"><label>Gewinn gesamt</label><div class="val" id="tot_gewinn">—</div></div>
+    <div class="totaal-item"><label>MwSt gesamt</label><div class="val" id="tot_mwst">—</div></div>
+    <div class="totaal-item"><label>VK Paar (brutto)</label><div class="val" id="tot_vk">—</div></div>
   </div>
 </div>
 
@@ -244,33 +310,28 @@ let saveTimer = null;
 function fmt(n, d=2) { return n.toFixed(d).replace('.', ','); }
 
 function loadSaved() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) return JSON.parse(raw);
-  } catch(e) {}
+  try { const r = localStorage.getItem(STORAGE_KEY); if (r) return JSON.parse(r); } catch(e) {}
   return null;
 }
 
 function savePreise() {
   const data = { datum: new Date().toLocaleDateString('de-DE'), preise: {} };
-  LEGIERUNGEN.forEach(leg => {
-    data.preise[leg.id] = parseFloat(document.getElementById('ek_' + leg.id).value) || leg.ekDefault;
+  LEGIERUNGEN.forEach(l => {
+    data.preise[l.id] = parseFloat(document.getElementById('ek_' + l.id).value) || l.ekDefault;
   });
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    const badge = document.getElementById('saved-badge');
-    badge.classList.add('show');
+    const b = document.getElementById('saved-badge');
+    b.classList.add('show');
     clearTimeout(saveTimer);
-    saveTimer = setTimeout(() => badge.classList.remove('show'), 2000);
+    saveTimer = setTimeout(() => b.classList.remove('show'), 2000);
   } catch(e) {}
 }
 
 function buildEkPreise() {
   const saved = loadSaved();
   const wrap = document.getElementById('ek-preise');
-  if (saved && saved.datum) {
-    document.getElementById('ek-datum').textContent = 'Stand: ' + saved.datum;
-  }
+  if (saved && saved.datum) document.getElementById('ek-datum').textContent = 'Stand: ' + saved.datum;
   LEGIERUNGEN.forEach(leg => {
     const val = saved ? (saved.preise[leg.id] || leg.ekDefault) : leg.ekDefault;
     const row = document.createElement('div');
@@ -286,13 +347,13 @@ function buildEkPreise() {
   });
 }
 
-function buildLegSelect() {
-  const sel = document.getElementById('legierung');
+function buildLegSelect(id, defaultIdx) {
+  const sel = document.getElementById(id);
   LEGIERUNGEN.forEach((leg, i) => {
     const opt = document.createElement('option');
     opt.value = leg.id;
     opt.textContent = leg.label;
-    if (i === 4) opt.selected = true;
+    if (i === defaultIdx) opt.selected = true;
     sel.appendChild(opt);
   });
 }
@@ -323,52 +384,60 @@ function buildMargeSelect() {
   }
 }
 
-function calc() {
-  const rm = parseFloat(document.getElementById('ringmass').value) || 0;
-  const rb = parseFloat(document.getElementById('ringbreite').value) || 0;
-  const rs = parseFloat(document.getElementById('ringstaerke').value) || 0;
-  const legId = document.getElementById('legierung').value;
-  const leg = LEGIERUNGEN.find(l => l.id === legId);
+function calcPartner(prefix) {
+  const rm     = parseFloat(document.getElementById(prefix + 'ringmass').value) || 0;
+  const rb     = parseFloat(document.getElementById(prefix + 'ringbreite').value) || 0;
+  const rs     = parseFloat(document.getElementById(prefix + 'ringstaerke').value) || 0;
+  const legId  = document.getElementById(prefix + 'legierung').value;
+  const leg    = LEGIERUNGEN.find(l => l.id === legId);
   const dichte = leg ? leg.dichte : 15.3;
   const ek_pgr = parseFloat(document.getElementById('ek_' + legId).value) || 0;
   const marge  = parseFloat(document.getElementById('marge').value) || 2.5;
 
-  document.getElementById('dichte_display').value = fmt(dichte, 1) + ' g/cm³';
-  document.getElementById('ek_pgr_display').value = '€ ' + fmt(ek_pgr);
-
   const ringlaenge = rm + rs * Math.PI;
-  document.getElementById('ringlaenge').value = fmt(ringlaenge) + ' mm';
+  const gewicht    = (ringlaenge * rb * rs * dichte) / 1000;
+  const ek_total   = gewicht * ek_pgr;
+  const netto      = ek_total * marge;
+  const gewinn     = netto - ek_total;
+  const mwst       = netto * 0.19;
+  const vk         = netto + mwst;
 
-  const vol     = ringlaenge * rb * rs;
-  const gewicht = vol * dichte / 1000;
-  document.getElementById('gewicht').value = fmt(gewicht) + ' gr';
+  document.getElementById(prefix + 'ringlaenge').value = fmt(ringlaenge) + ' mm';
+  document.getElementById(prefix + 'gewicht').value    = fmt(gewicht) + ' gr';
+  document.getElementById(prefix + 'ek_pgr').textContent  = '€ ' + fmt(ek_pgr);
+  document.getElementById(prefix + 'ek_total').textContent = '€ ' + fmt(ek_total);
+  document.getElementById(prefix + 'gewinn').textContent   = '€ ' + fmt(gewinn);
+  document.getElementById(prefix + 'mwst').textContent     = '€ ' + fmt(mwst);
+  document.getElementById(prefix + 'vk').textContent       = '€ ' + fmt(vk);
 
-  const ek_total = gewicht * ek_pgr;
-  document.getElementById('ek_total').value = '€ ' + fmt(ek_total);
+  return { gewinn, mwst, vk };
+}
 
-  const netto  = ek_total * marge;
-  const gewinn = netto - ek_total;
-  const mwst   = netto * 0.19;
-  const vk     = netto + mwst;
-
-  document.getElementById('res_gewinn').textContent = '€ ' + fmt(gewinn);
-  document.getElementById('res_mwst').textContent   = '€ ' + fmt(mwst);
-  document.getElementById('res_vk').textContent     = '€ ' + fmt(vk);
+function calc() {
+  const r1 = calcPartner('p1_');
+  const r2 = calcPartner('p2_');
+  document.getElementById('tot_gewinn').textContent = '€ ' + fmt(r1.gewinn + r2.gewinn);
+  document.getElementById('tot_mwst').textContent   = '€ ' + fmt(r1.mwst + r2.mwst);
+  document.getElementById('tot_vk').textContent     = '€ ' + fmt(r1.vk + r2.vk);
 }
 
 buildEkPreise();
-buildLegSelect();
-buildSelect('ringmass',    46.0, 73.0, 0.5, 61.0);
-buildSelect('ringbreite',  2.00, 10.0, 0.1, 5.00);
-buildSelect('ringstaerke', 1.00,  3.0, 0.1, 1.80);
+buildLegSelect('p1_legierung', 3); // 750 Gelbgold
+buildLegSelect('p2_legierung', 4); // 750 Roségold
+buildSelect('p1_ringmass',    46.0, 73.0, 0.5, 57.0);
+buildSelect('p1_ringbreite',  2.00, 10.0, 0.1, 5.00);
+buildSelect('p1_ringstaerke', 1.00,  3.0, 0.1, 1.80);
+buildSelect('p2_ringmass',    46.0, 73.0, 0.5, 53.0);
+buildSelect('p2_ringbreite',  2.00, 10.0, 0.1, 4.00);
+buildSelect('p2_ringstaerke', 1.00,  3.0, 0.1, 1.80);
 buildMargeSelect();
 
-['ringmass','ringbreite','ringstaerke','legierung','marge'].forEach(id => {
+['p1_ringmass','p1_ringbreite','p1_ringstaerke','p1_legierung',
+ 'p2_ringmass','p2_ringbreite','p2_ringstaerke','p2_legierung','marge'].forEach(id => {
   document.getElementById(id).addEventListener('change', calc);
   document.getElementById(id).addEventListener('input', calc);
 });
 
-// Wacht tot alle elementen gebouwd zijn, dan calc
 setTimeout(calc, 0);
 </script>
 </body>
